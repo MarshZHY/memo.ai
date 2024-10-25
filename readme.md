@@ -1,8 +1,10 @@
-# Video Demonstration
 
-Here’s a demonstration of the application:
+Watch a quick video demo of MeMoDot AI [here](https://youtu.be/7y9JksBULZs) or use the embedded player below:
 
-<video src="2024-10-25.mp4" controls width="600"></video>
+[![MeMoDot AI Video Demo](https://img.youtube.com/vi/7y9JksBULZs/0.jpg)](https://youtu.be/7y9JksBULZs)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7y9JksBULZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 # MeMoDot AI ( Host on Vercel mai dai TOT )
 
