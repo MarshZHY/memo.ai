@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MeMoDot AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>MeMoDot AI rak KMUTT</h1>
+    
+    <div class="container">
+        <!-- Left side: Stress level chart -->
+        <div id="graph-container">
+            <div id="stressChart"></div>
+        </div>
+        
+        <!-- Right side: Diary entry and feedback -->
+        <div class="diary-section">
+            <!-- Date Picker -->
+            <div id="calendar">
+                <label for="entry-date">Select Date ( Real WebApp not have ):</label>
+                <input type="date" id="entry-date" value="{{ current_date }}">
+            </div>
+
+            <!-- Text area for the diary entry -->
+            <div id="diary-entry">
+                <h3>Write about your day :</h3>
+                <textarea id="diary-text" rows="6" placeholder="How was your day? Share your thoughts..."></textarea>
+                <button class="btn-submit" onclick="submitEntry()">Submit Diary</button>
+                <button class="btn-clear" onclick="clearEntry()">Clear Diary </button>
+            </div>
+
+            <!-- Display streak with fire icon -->
+            <div id="streak-info">
+                <span id="streak">🔥 {{ streak }}</span>
+            </div>
+
+            <!-- AI feedback area -->
+            <div id="feedback">
+                <h3>AI Feedback :</h3>
+                <p id="stress-feedback">AI Feedback will appear here after submitting.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
