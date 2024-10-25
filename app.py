@@ -6,7 +6,7 @@ from openai import OpenAI
 app = Flask(__name__)
 
 DATABASE = 'data.db'
-TYPHOON_API_KEY = 'sk-75Gt45VtcvieHJihgyYjFlrc9SHVph5sGMruGCHoffF8bFKc'  # Replace with actual API key
+TYPHOON_API_KEY = 'sk-75Gt45VtcvieHJihgyYjFlrc9SHVph5sGMruGCHoffF8bFKc'  # LAZY TO HIDE
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -56,32 +56,32 @@ def analyze_stress(entry_text):
     chat_completion = client.chat.completions.create(
         model="typhoon-instruct",
         messages=[
-            {
-                "role": "system",
-                "content": """
-You are a helpful assistant for a mood diary app that analyzes Thai text entries to gauge stress levels on a scale of 0 to 100, with 0 indicating no stress and 100 indicating extremely high stress. Use the following examples to understand how to respond.
+                    {
+                        "role": "system",
+                        "content": """
+        You are a helpful assistant for a mood diary app that analyzes Thai text entries to gauge stress levels on a scale of 0 to 100, with 0 indicating no stress and 100 indicating extremely high stress. Use the following examples to understand how to respond.
 
-Example 1:
-Input: "วันนี้ฉันรู้สึกสบายใจ ไม่มีอะไรให้ต้องกังวลจริงๆ"
-Output: {'stress': 10, 'feedback': 'วันนี้คุณดูผ่อนคลายดี ไม่มีความเครียดสะสมมาก'}
+        Example 1:
+        Input: "วันนี้ฉันรู้สึกสบายใจ ไม่มีอะไรให้ต้องกังวลจริงๆ"
+        Output: {'stress': 10, 'feedback': 'วันนี้คุณดูผ่อนคลายดี ไม่มีความเครียดสะสมมาก'}
 
-Example 2:
-Input: "วันนี้มีงานเยอะจนไม่รู้จะเริ่มจากไหนแล้ว เหนื่อยมากๆ"
-Output: {'stress': 75, 'feedback': 'การทำงานหนักอาจทำให้เหนื่อยมาก ควรพักผ่อนบ้างเพื่อผ่อนคลาย'}
+        Example 2:
+        Input: "วันนี้มีงานเยอะจนไม่รู้จะเริ่มจากไหนแล้ว เหนื่อยมากๆ"
+        Output: {'stress': 75, 'feedback': 'การทำงานหนักอาจทำให้เหนื่อยมาก ควรพักผ่อนบ้างเพื่อผ่อนคลาย'}
 
-Example 3:
-Input: "มีเรื่องมากมายที่ต้องจัดการ รู้สึกกดดันทุกอย่าง"
-Output: {'stress': 90, 'feedback': 'คุณกำลังรู้สึกกดดันและมีภาระมาก ลองหาช่วงเวลาผ่อนคลายเพื่อช่วยให้ผ่อนคลาย'}
+        Example 3:
+        Input: "มีเรื่องมากมายที่ต้องจัดการ รู้สึกกดดันทุกอย่าง"
+        Output: {'stress': 90, 'feedback': 'คุณกำลังรู้สึกกดดันและมีภาระมาก ลองหาช่วงเวลาผ่อนคลายเพื่อช่วยให้ผ่อนคลาย'}
 
-Please analyze the following entry for stress level and provide feedback.
-                """
-            },
-            {"role": "user", "content": entry_text}
-        ],
-        temperature=0.9,
-        top_p=0.9
-    )
-    
+        Please analyze the following entry for stress level and provide feedback.
+                        """
+                    },
+                    {"role": "user", "content": entry_text}
+                ],
+                temperature=0.9,
+                top_p=0.9
+            )
+            
     response_content = chat_completion.choices[0].message.content
     try:
         response_data = eval(response_content)

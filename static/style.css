@@ -36,13 +36,6 @@ h1 {
     text-align: center;
 }
 
-#graph-container h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 10px;
-}
-
 #stressChart {
     width: 100% !important;
     height: 400px !important;
