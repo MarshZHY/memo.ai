@@ -6,7 +6,7 @@ from openai import OpenAI
 app = Flask(__name__)
 
 DATABASE = 'data.db'
-TYPHOON_API_KEY = 'sk-ZCgwfNCBrR7nc7WxVGjLuL7LKoVRLuMzIaDg3sHNeGLxunS4'  # Replace with actual API key
+TYPHOON_API_KEY = 'sk-75Gt45VtcvieHJihgyYjFlrc9SHVph5sGMruGCHoffF8bFKc'  # Replace with actual API key
 
 def get_db():
     db = getattr(g, '_database', None)
